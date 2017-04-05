@@ -6,18 +6,32 @@ namespace classes
 	{
 		class Plane
 		{
-			public long name;
+			public long number;
 			public string type;
 			public double resurs;
 		
 			public Plane() { 
-				this.name = long.Parse(Console.ReadLine());
+				this.number = long.Parse(Console.ReadLine());
 				this.type = Console.ReadLine();
 				this.resurs = double.Parse(Console.ReadLine());
 			}
-			public void show()
+		}
+		class Request {
+			public void show(Plane[] a)
 			{
-				Console.WriteLine("{0} {1} {2}",this.name,this.type,this.resurs);
+				for (int i = 0; i < a.Length; i++)
+				{
+					Console.WriteLine("{0} {1} {2}", a[i].number, a[i].type, a[i].resurs);
+				}
+			}
+			public void resurs(Plane[] a)
+			{
+				for (int i = 0; i < a.Length; i++)
+				{
+					if (a[i].resurs > 200) { 
+						Console.WriteLine("{0} {1} {2}", a[i].number, a[i].type, a[i].resurs); 
+					}
+				}
 			}
 		}
 		public static void Main(string[] args)
@@ -27,9 +41,11 @@ namespace classes
 			for (int i = 0; i < n; i++) {
 				a[i]=new Plane();
 			}
-			for (int i = 0; i < n; i++) {
-				a[i].show();
-			}
+			Console.WriteLine("All:");
+			Request req=new Request();
+			req.show(a);
+			Console.WriteLine("Resurs:");
+			req.resurs(a);
 		}
 	}
 }
