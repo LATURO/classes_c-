@@ -9,7 +9,6 @@ namespace classes
 			public long number;
 			public string type;
 			public double resurs;
-		
 			public Plane() { 
 				this.number = long.Parse(Console.ReadLine());
 				this.type = Console.ReadLine();
